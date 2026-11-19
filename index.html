@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>gitbug</title>
+  <link rel="icon" href="data:,">
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+  <main>
+    <section id="login" hidden>
+      <h1>gitbug</h1>
+      <p>Every GitHub repository you can access, in one searchable list.</p>
+      <ol>
+        <li>
+          <a id="token-link" href="https://github.com/settings/tokens/new?scopes=repo,read:org&amp;description=gitbug" target="_blank" rel="noopener">Create a classic token</a>
+          with the <code>repo</code> and <code>read:org</code> scopes. Set <em>Expiration</em> to "No expiration" if you don't want to do this again.
+        </li>
+        <li>If an org uses SAML SSO, click <em>Configure SSO</em> next to the token and authorize it for that org.</li>
+        <li>Paste it here. It stays in this browser and is only sent to <code>api.github.com</code>.</li>
+      </ol>
+      <form id="login-form">
+        <input id="token" type="password" placeholder="ghp_…" autocomplete="off" spellcheck="false" required>
+        <button type="submit">Sign in</button>
+      </form>
+      <p id="login-error" class="error" hidden></p>
+    </section>
+
+    <section id="app" hidden>
+      <header>
+        <input id="q" type="search" placeholder="Search repositories…  ( / )" autocomplete="off" spellcheck="false">
+        <div class="bar">
+          <span id="status"></span>
+          <span class="actions">
+            <button id="refresh" type="button" title="Refresh">Refresh</button>
+            <button id="logout" type="button" title="Forget token">Sign out</button>
+          </span>
+        </div>
+      </header>
+      <ul id="list"></ul>
+    </section>
+  </main>
+</body>
+</html>
