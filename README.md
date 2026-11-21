@@ -41,7 +41,7 @@ npm run deploy
 
 This targets bucket `gitbug-423142988617-ap-southeast-2-an` and CloudFront distribution `E3AKA2T59GTNLH` (`dper547scb8r8.cloudfront.net`). To deploy elsewhere, override them with `BUCKET=… DIST_ID=… npm run deploy`.
 
-This runs the tests, builds, uploads the hashed `assets/` with a one-year immutable cache, uploads `index.html` with `no-cache`, and invalidates `/` and `/index.html`. Stale assets from old builds are left in the bucket, which is harmless.
+This runs the tests, builds, uploads the hashed `assets/` with a one-year immutable cache, uploads `index.html` with `no-cache`, uploads `favicon.ico`, and invalidates `/`, `/index.html`, and `/favicon.ico`. Stale assets from old builds are left in the bucket, which is harmless.
 
 CloudFront setup:
 - Origin: the S3 bucket with Origin Access Control. Default root object: `index.html`.
